@@ -1,2 +1,2 @@
 # DapAdmin
-The Data Acces Project base project for Housse Of Code
+The Data Access Project base project for House Of Code
