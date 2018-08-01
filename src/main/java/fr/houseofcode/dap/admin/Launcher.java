@@ -3,6 +3,8 @@ package fr.houseofcode.dap.admin;
  * Data Access Project Launcher.
  */
 
+import fr.houseofcode.dap.admin.view.MainWindow;
+
 /**
  * Launcher for the DataAccessProject admin tool.
  * @author djer
@@ -13,7 +15,7 @@ public final class Launcher {
      * Utility CLass.
      */
     private Launcher() {
-        throw new UnsupportedOperationException("Launcher is an EntryPoint (Utility CLass) not a business Class");
+        throw new UnsupportedOperationException("Launcher is an EntryPoint (Utility Class) not a business Class");
     }
 
     /**
@@ -21,16 +23,7 @@ public final class Launcher {
      * @param args command line parameters.
      */
     public static void main(final String[] args) {
-        sayHello("le monde");
-        sayHello(null);
+        final MainWindow mainWindow = new MainWindow("House of Code - Data Access Project");
+        mainWindow.show();
     }
-
-    /**
-     * Say Hello in French.
-     * @param who name of user to say Hello.
-     */
-    private static void sayHello(final String who) {
-        System.out.println("Bonjour " + who + " !");
-    }
-
 }
