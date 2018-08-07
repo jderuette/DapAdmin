@@ -3,6 +3,9 @@ package fr.houseofcode.dap.admin;
  * Data Access Project Launcher.
  */
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import fr.houseofcode.dap.admin.view.MainWindow;
 
 /**
@@ -12,9 +15,15 @@ import fr.houseofcode.dap.admin.view.MainWindow;
 public final class Launcher {
 
     /**
+     * Logger.
+     */
+    private static final Logger LOG = LogManager.getLogger();
+
+    /**
      * Utility CLass.
      */
     private Launcher() {
+        LOG.error("Cannot instntiate Launcher");
         throw new UnsupportedOperationException("Launcher is an EntryPoint (Utility Class) not a business Class");
     }
 
@@ -24,6 +33,6 @@ public final class Launcher {
      */
     public static void main(final String[] args) {
         final MainWindow mainWindow = new MainWindow("House of Code - Data Access Project");
-        mainWindow.show();
+        mainWindow.display();
     }
 }

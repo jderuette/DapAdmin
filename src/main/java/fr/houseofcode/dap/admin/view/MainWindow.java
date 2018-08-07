@@ -6,6 +6,9 @@ package fr.houseofcode.dap.admin.view;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * The main GUI entry point.
  * @author djer
@@ -15,6 +18,12 @@ public class MainWindow extends JFrame {
      * serialVersionUID.
      */
     private static final long serialVersionUID = 3606250506110105509L;
+
+    /**
+     * Logger.
+     */
+    private static final Logger LOG = LogManager.getLogger();
+
     /**
      * Default Main Window Height.
      */
@@ -55,6 +64,10 @@ public class MainWindow extends JFrame {
      * Initialize the GUI.
      */
     private void init() {
+        if (LOG.isDebugEnabled()) {
+            LOG.debug(new StringBuilder().append("Init : MainWindow, with title : ").append(getDefaultTitle())
+                    .toString());
+        }
         this.setTitle(getDefaultTitle());
         this.setSize(WINDOW_HEIGHT, WINDOW_WIDTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,15 +79,14 @@ public class MainWindow extends JFrame {
     /**
      * Show this Window.
      */
-    public void show() {
+    public void display() {
         this.setVisible(true);
     }
 
     /**
      * Hide this window.
      */
-    @Override
-    public void hide() {
+    public void mask() {
         this.setVisible(false);
     }
 
