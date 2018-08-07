@@ -17,7 +17,8 @@
         </Console>
 
         <RollingRandomAccessFile name="RollingRandomAccessFileOneByDayForTwentyDays"
-            fileName="${LOG_FILENAME}" filePattern="${LOG_FILEPATTERN}" advertiseURI="file://${LOG_FILENAME}" advertise="true">
+            fileName="${LOG_FILENAME}" filePattern="${LOG_FILEPATTERN}" advertiseURI="file://${LOG_FILENAME}"
+            advertise="true">
             <PatternLayout>
                 <Pattern>${LOG_PATTERN}</Pattern>
             </PatternLayout>
