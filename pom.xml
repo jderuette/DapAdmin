@@ -5,6 +5,7 @@
     <artifactId>DapAdmin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <description>Data Access Project Admin</description>
+    <url>http://www.localhost.com/</url>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -137,5 +138,5 @@
             </plugin>
         </plugins>
     </reporting>
-    <url>http://www.localhost.com/</url>
+    
 </project>
