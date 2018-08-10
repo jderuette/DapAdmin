@@ -90,7 +90,9 @@
                     <targetJdk>10</targetJdk>
                     <skipEmptyReport>false</skipEmptyReport>
                     <minimumTokens>75</minimumTokens>
-                    <configLocation>pmd/dap_pmd_ruleset.xml</configLocation>
+                    <rulesets>
+                        <ruleset>/pmd/dap_pmd_ruleset.xml</ruleset>
+                    </rulesets>
                 </configuration>
             </plugin>
             <plugin>
@@ -118,7 +120,8 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.0.0</version>
                 <configuration>
-                    <configLocation>checkstyle/dap_checkstyle_checks.xml</configLocation>
+                    <configLocation>${project.basedir}/checkstyle/dap_admin_checkstyle_checks.xml</configLocation>
+                    <propertyExpansion>basedir=${project.basedir}</propertyExpansion>
                 </configuration>
                 <reportSets>
                     <reportSet>
