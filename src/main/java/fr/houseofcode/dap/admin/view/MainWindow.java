@@ -3,8 +3,15 @@
  */
 package fr.houseofcode.dap.admin.view;
 
+import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -42,6 +49,14 @@ public class MainWindow extends JFrame {
      */
     private String defaultTitle = "House of Code - DAP Admin";
 
+    private JLabel nextEventLabel;
+    private JLabel nbUnreadEmailsLabel;
+    private JScrollPane emailLabels;
+    private JTextArea emailLabelsArea;
+
+    private JPanel actionsPan;
+    private JButton refreshButton;
+
     /**
      * Create the MainWindow. Will automatically call the "init" method.
      */
@@ -74,6 +89,23 @@ public class MainWindow extends JFrame {
         this.setLocationRelativeTo(null);
         this.setContentPane(mainPanel);
 
+        this.setLayout(new BorderLayout());
+        nextEventLabel = new JLabel("unknow");
+
+        nbUnreadEmailsLabel = new JLabel("");
+        emailLabels = new JScrollPane();
+        emailLabelsArea = new JTextArea("");
+        emailLabelsArea.setLineWrap(true);
+        emailLabels.add(emailLabelsArea);
+
+        actionsPan = new JPanel();
+        refreshButton = new JButton("Rafraichir");
+        actionsPan.add(refreshButton);
+
+        getContentPane().add(emailLabels, BorderLayout.CENTER);
+        getContentPane().add(nbUnreadEmailsLabel, BorderLayout.NORTH);
+        getContentPane().add(nextEventLabel, BorderLayout.SOUTH);
+        getContentPane().add(actionsPan, BorderLayout.WEST);
     }
 
     /**
@@ -90,6 +122,42 @@ public class MainWindow extends JFrame {
         this.setVisible(false);
     }
 
+    public void resetNextEvent() {
+        resetText(nextEventLabel);
+    }
+
+    public void setNextEvent(final String nextEventInfo) {
+        nextEventLabel.setText(nextEventInfo);
+    }
+
+    public void resetEmailsLabels() {
+        resetText(emailLabelsArea);
+    }
+
+    public void setEmailsLabels(final String labels) {
+        emailLabelsArea.setText(labels);
+    }
+
+    public void resetNbUnreadEmails() {
+        resetText(nbUnreadEmailsLabel);
+    }
+
+    public void setNbUnreadEmails(final String nbUnreadEmails) {
+        nbUnreadEmailsLabel.setText(nbUnreadEmails);
+    }
+
+    public void addRefreshCallback(final ActionListener actionListener) {
+        refreshButton.addActionListener(actionListener);
+    }
+
+    private void resetText(final JLabel label) {
+        label.setText("...");
+    }
+
+    private void resetText(final JTextArea label) {
+        label.setText("...");
+    }
+
     /**
      * @return the defaultTitle
      */
@@ -103,5 +171,4 @@ public class MainWindow extends JFrame {
     public void setDefaultTitle(final String title) {
         this.defaultTitle = title;
     }
-
 }
